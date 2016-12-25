@@ -45,6 +45,7 @@ function notifyAllRelatedUsers(keyword, url){
           notificationList.forEach(function(userId) {
             var delayMillis = randomInt(500, 5000);
             setTimeout(function() {
+              console.log("userId: "+userId+ " " + message);
               chatterModule.sendMessageToUser(userId, message);
             }, delayMillis);
           });
@@ -62,7 +63,7 @@ var newsAddedCallback = function(err, result){
   chatterModule.pushAdminNotification("Yeni bir haber sisteme eklendi, "+newsTitle);
   var userKeywords = chatterModule.getUserKeywords();
   userKeywords.forEach(function(userKeyword) {
-    if(newsDescription.includes(userKeyword)) {
+    if(newsDescription.includes(userKeyword) || newsTitle.includes(userKeyword)) {
       notifyAllRelatedUsers(userKeyword, newsData.Url);
     }
   });
