@@ -34,6 +34,11 @@ let latestNewsRequestReceivedCallback = function(userId) {
   })
 };
 
+let fetchRequestReceivedCallback = function(newsCount) {
+  hurriyetModule.cacheLatestNews(newsCount);
+  console.log("newsCount "+newsCount+" is going to be fetched");
+}
+
 function randomInt (low, high) {
     return Math.floor(Math.random() * (high - low) + low);
 }
@@ -76,6 +81,7 @@ chatterModule.initializeModule(appConfig.telegramApiKey, appConfig.mongoUrl, app
         if(newsAddedCallback) {
           hurriyetModule.setNewsAddedCallback(newsAddedCallback);
           chatterModule.setLatestNewsRequestReceivedCallback(latestNewsRequestReceivedCallback);
+          chatterModule.setFetchRequestReceivedCallback(fetchRequestReceivedCallback);
         } else {
           throw new Error("DAFFFFUQ");
         }
