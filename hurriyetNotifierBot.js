@@ -1,7 +1,7 @@
 const appConfig = {
   hurriyetApiKey: "3d6c4857fdff4fa58051493e20da9050",
   fetchLimit: 5,
-  fetchIntervalInMinutes: 1,
+  fetchIntervalInMinutes: 2,
   newsIdCollection: "newsIdCollection", 
   newsDataCollection: "newsDataCollection",
   
