@@ -55,9 +55,9 @@ function notifyAllRelatedUsers(keyword, url){
 }
 
 var newsAddedCallback = function(err, result){
-  console.log("hurriyetNotifierBot - newsAddedCallback")
   var newsData          = result.newsData;
   var newsDescription   = newsData.Description;
+  chatterModule.pushAdminNotification("Yeni bir haber sisteme eklendi: "+newsDescription);
   
   //var extractedKeywords = result.extractedKeywords;
 
@@ -67,25 +67,6 @@ var newsAddedCallback = function(err, result){
       notifyAllRelatedUsers(userKeyword, newsData.Url);
     }
   });
-  /*
-  extractedKeywords.forEach(function(extractedKeyword){
-    if (userKeywords.indexOf(extractedKeyword) > -1) {
-      chatterModule.getNotificationList(extractedKeyword, function(err, notificationList){
-        if(!err) {
-          var message = extractedKeyword + " hakkinda yeni bir haber buldum. \n" + newsData.Url;
-          notificationList.forEach(function(userId) {
-            var delayMillis = randomInt(500, 5000);
-            setTimeout(function() {
-              chatterModule.sendMessageToUser(userId, message);
-            }, delayMillis);
-          });
-        } else {
-          throw err;
-        }
-      });
-    }
-  });
-  */
 };
 
 chatterModule.initializeModule(appConfig.telegramApiKey, appConfig.mongoUrl, appConfig.notificationListName, appConfig.keywordListName, appConfig.userCollectionName, function(err, result) {
