@@ -57,10 +57,9 @@ function notifyAllRelatedUsers(keyword, url){
 var newsAddedCallback = function(err, result){
   var newsData          = result.newsData;
   var newsDescription   = newsData.Description;
-  chatterModule.pushAdminNotification("Yeni bir haber sisteme eklendi: "+newsDescription);
+  var newsTitle         = newsData.Title;
   
-  //var extractedKeywords = result.extractedKeywords;
-
+  chatterModule.pushAdminNotification("Yeni bir haber sisteme eklendi, "+newsTitle);
   var userKeywords = chatterModule.getUserKeywords();
   userKeywords.forEach(function(userKeyword) {
     if(newsDescription.includes(userKeyword)) {
