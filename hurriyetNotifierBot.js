@@ -1,5 +1,5 @@
 const appConfig = {
-  hurriyetApiKey: "3d6c4857fdff4fa58051493e20da9050",
+  hurriyetApiKey: "",
   fetchLimit: 5,
   fetchIntervalInMinutes: 2,
   newsIdCollection: "newsIdCollection", 
@@ -10,8 +10,8 @@ const appConfig = {
   userCollectionName:   "userCollection",     //chatter
   
   
-  mongoUrl: "mongodb://umut:yoyo123@ds145128.mlab.com:45128/hurriyet-hao",
-  telegramApiKey: "316839828:AAGQ_zU14CB-iQ36X10e4bH28v20MVkT_kc"
+  mongoUrl: "",
+  telegramApiKey: ""
 };
 
 var chatterModule  = require("./lib/chatterModule");
