@@ -2,7 +2,7 @@
 You just need to tell your keywords and **@hurriyethackbot** will send you related news over [Telegram](http://telegram.org) from [Hurriyet](http://www.hurriyet.com.tr/) as soon as they are published. You can also ask for latest news to **@hurriyethackbot**.
 
 | Command         | Argument      | Description       |
-| -------------   |:-------------:|:-------------:  |
+| -------------   |:-------------:|:-------------  |
 | /bildirim       | kelime        | set keyword     |
 | /iptal          | kelime        | cancel keyword  |
 | /bildirimlerim  |               | my keywords     |
